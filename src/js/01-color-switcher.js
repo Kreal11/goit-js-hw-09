@@ -22,3 +22,5 @@ const onStop = event => {
 
 startBtn.addEventListener('click', onStart);
 stopBtn.addEventListener('click', onStop);
+
+
