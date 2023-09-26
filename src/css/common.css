@@ -25,3 +25,8 @@ img {
 .value {
   color: crimson;
 }
+
+body {
+  background: '#1D1E22';
+  overflow: hidden;
+}

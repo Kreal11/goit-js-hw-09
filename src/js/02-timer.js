@@ -71,6 +71,7 @@ function startCountDown(finalDate) {
         hoursField.textContent = '00';
         minutesField.textContent = '00';
         secondsField.textContent = '00';
+        alert('The bomb exploded! Why did you destroy humanity?')
     }
 }
 
@@ -80,7 +81,8 @@ function onStart() {
     if (initDate) {
         finalDate = initDate.getTime();
         if (intervalId === null || intervalId === undefined) {
-        startCountDown(finalDate);
+            alert('The bomb has been planted! Move to the shelter!');
+            startCountDown(finalDate);
         intervalId = setInterval(() => startCountDown(finalDate), 1000)   
         } 
     }
@@ -113,11 +115,6 @@ function onStart() {
 // button.addEventListener('click', startTimer);
 
 // ====================== 1st variant ========================= //
-
-
-
-
-
 
 
 
