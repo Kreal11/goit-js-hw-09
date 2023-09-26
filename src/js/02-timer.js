@@ -11,6 +11,8 @@ let intervalId = null;
 let initDate;
 let finalDate;
 
+button.disabled = true;
+
 function convertMs(ms) {
 
   const second = 1000;
@@ -42,6 +44,7 @@ const options = {
                 button.setAttribute('disabled', 'disabled');
                 clearInterval(intervalId); 
             } else {
+                button.disabled = false;
                 intervalId = null;
                 initDate = selectedDates[0];
                 button.removeAttribute('disabled');
@@ -50,34 +53,6 @@ const options = {
 };
 
 flatpickr(input, options);
-
-// ==================== 1-st variant ======================= //
-
-// function startTimer() {
-
-//     finalDate = initDate.getTime();
-//     intervalId = setInterval(() => {
-//     const currentDate = new Date().getTime();
-//     const remainingTime = finalDate - currentDate;
-
-//     if (remainingTime <= 0) {
-//       clearInterval(intervalId);
-//       intervalId = null;
-//       return;
-//     }
-
-//     const { days, hours, minutes, seconds } = convertMs(remainingTime);
-
-//     daysField.textContent = addLeadingZero(days);
-//     hoursField.textContent = addLeadingZero(hours);
-//     minutesField.textContent = addLeadingZero(minutes);
-//     secondsField.textContent = addLeadingZero(seconds);
-//   }, 1000);
-// }
-
-// button.addEventListener('click', startTimer);
-
-// ====================== 2nd variant ========================= //
 
 function startCountDown(finalDate) {
 
@@ -110,6 +85,35 @@ function onStart() {
         } 
     }
 }
+
+// ==================== 2nd variant ======================= //
+
+// function startTimer() {
+
+//     finalDate = initDate.getTime();
+//     intervalId = setInterval(() => {
+//     const currentDate = new Date().getTime();
+//     const remainingTime = finalDate - currentDate;
+
+//     if (remainingTime <= 0) {
+//       clearInterval(intervalId);
+//       intervalId = null;
+//       return;
+//     }
+
+//     const { days, hours, minutes, seconds } = convertMs(remainingTime);
+
+//     daysField.textContent = addLeadingZero(days);
+//     hoursField.textContent = addLeadingZero(hours);
+//     minutesField.textContent = addLeadingZero(minutes);
+//     secondsField.textContent = addLeadingZero(seconds);
+//   }, 1000);
+// }
+
+// button.addEventListener('click', startTimer);
+
+// ====================== 1st variant ========================= //
+
 
 
 
