@@ -41,13 +41,11 @@ const options = {
         const inputCurrentDate = new Date();
             if (selectedDates[0] <= inputCurrentDate) {
                 alert("Please choose a date in the future");
-                button.setAttribute('disabled', 'disabled');
                 clearInterval(intervalId); 
             } else {
                 button.disabled = false;
                 intervalId = null;
                 initDate = selectedDates[0];
-                button.removeAttribute('disabled');
         }
     },
 };
@@ -116,7 +114,3 @@ function onStart() {
 
 // ====================== 1st variant ========================= //
 
-
-
-    
-    
