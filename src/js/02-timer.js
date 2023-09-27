@@ -12,6 +12,8 @@ let intervalId = null;
 let initDate;
 let finalDate;
 
+button.addEventListener('click', onStart);
+
 button.disabled = true;
 
 function convertMs(ms) {
@@ -101,7 +103,6 @@ function startCountDown(finalDate) {
     }
 }
 
-button.addEventListener('click', onStart);
 
 function onStart() {
     if (initDate) {
