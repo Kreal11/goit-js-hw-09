@@ -41,7 +41,11 @@ const options = {
     onClose(selectedDates) {
         const inputCurrentDate = new Date();
             if (selectedDates[0] <= inputCurrentDate) {
-                Notiflix.Notify.failure('Please choose a date in the future');
+                Notiflix.Notify.failure(
+                    'Please choose a date in the future',
+                    {
+                    timeout: 5000,
+                    });
                 clearInterval(intervalId); 
             } else {
                 button.disabled = false;
@@ -76,13 +80,21 @@ function startCountDown(finalDate) {
         'They deserved it',
         'I don`t know',
         function okCb() {
-        Notiflix.Notify.failure('😡 NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO!!!');
+            return Notiflix.Notify.failure(
+                '😡 NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO!!!',
+                {
+                timeout: 5000,
+                });
         },
         function cancelCb() {
-        Notiflix.Notify.warning('😪 That is not funny !!! How dare you ? You don`t even know the reason why you did it !');
-        },
+            return Notiflix.Notify.warning(
+                '😪 That is not funny !!! How dare you ? You don`t even know the reason why you did it !',
+                {
+                timeout: 5000,
+                });
+                },
         {
-         width: '320px',
+        width: '320px',
         borderRadius: '8px',
         }
         )
@@ -95,7 +107,11 @@ function onStart() {
     if (initDate) {
         finalDate = initDate.getTime();
         if (intervalId === null || intervalId === undefined) {
-            Notiflix.Notify.warning('The bomb has been planted! Move to the shelter!');
+            Notiflix.Notify.warning(
+                'The bomb has been planted! Move to the shelter!',
+                {
+                timeout: 5000,
+                });
             startCountDown(finalDate);
         intervalId = setInterval(() => startCountDown(finalDate), 1000)   
         } 
