@@ -5,6 +5,7 @@ const firstDelayInput = document.querySelector('[name="delay"]');
 const delayStepInput = document.querySelector('[name="step"]');
 const amountInput = document.querySelector('[name="amount"]');
 
+
 clickBtn.addEventListener('click', onClick);
 
 function createPromise(position, delay) {
