@@ -77,7 +77,7 @@ function startCountDown(finalDate) {
     return Notiflix.Confirm.show(
       'The bomb exploded!',
       'Why did you destroy humanity?',
-      'They deserved it',
+      'They deserve it',
       'I don`t know',
       function okCb() {
         return Notiflix.Notify.failure(
