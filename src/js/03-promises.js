@@ -28,10 +28,10 @@ function onClick(event) {
   const amount = Number(amountInput.value);
 
   for (let i = 0; i < amount; i += 1) {
-    createPromise(i + 1, delay + (i * step)).then(({position, delay}) => {
-      Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
-    }).catch(({position, delay}) => {
-      Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
+    createPromise(i + 1, delay + (i * step)).then((result) => {
+      Notiflix.Notify.success(`✅ Fulfilled promise ${result.position} in ${result.delay}ms`);
+    }).catch((error) => {
+      Notiflix.Notify.failure(`❌ Rejected promise ${error.position} in ${error.delay}ms`);
     });
     
   }
