@@ -70,7 +70,7 @@ function startCountDown(finalDate) {
         hoursField.textContent = '00';
         minutesField.textContent = '00';
         secondsField.textContent = '00';
-        Notiflix.Confirm.show(
+        return Notiflix.Confirm.show(
         'The bomb exploded!',
         'Why did you destroy humanity?',
         'They deserved it',
