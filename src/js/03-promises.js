@@ -33,7 +33,6 @@ function onClick(event) {
     }).catch((error) => {
       Notiflix.Notify.failure(`❌ Rejected promise ${error.position} in ${error.delay}ms`);
     });
-    
   }
 };
 
