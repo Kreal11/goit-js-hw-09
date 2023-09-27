@@ -1,5 +1,6 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
+import Notiflix from 'notiflix';
 
 const input = document.querySelector('#datetime-picker');
 const button = document.querySelector('button[data-start]');
@@ -40,7 +41,7 @@ const options = {
     onClose(selectedDates) {
         const inputCurrentDate = new Date();
             if (selectedDates[0] <= inputCurrentDate) {
-                alert("Please choose a date in the future");
+                Notiflix.Notify.failure('Please choose a date in the future');
                 clearInterval(intervalId); 
             } else {
                 button.disabled = false;
@@ -69,7 +70,22 @@ function startCountDown(finalDate) {
         hoursField.textContent = '00';
         minutesField.textContent = '00';
         secondsField.textContent = '00';
-        alert('The bomb exploded! Why did you destroy humanity?')
+        Notiflix.Confirm.show(
+        'The bomb exploded!',
+        'Why did you destroy humanity?',
+        'They deserved it',
+        'I don`t know',
+        function okCb() {
+        Notiflix.Notify.failure('😡 NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO!!!');
+        },
+        function cancelCb() {
+        Notiflix.Notify.warning('😪 That is not funny !!! How dare you ? You don`t even know the reason why you did it !');
+        },
+        {
+         width: '320px',
+        borderRadius: '8px',
+        }
+        )
     }
 }
 
@@ -79,7 +95,7 @@ function onStart() {
     if (initDate) {
         finalDate = initDate.getTime();
         if (intervalId === null || intervalId === undefined) {
-            alert('The bomb has been planted! Move to the shelter!');
+            Notiflix.Notify.warning('The bomb has been planted! Move to the shelter!');
             startCountDown(finalDate);
         intervalId = setInterval(() => startCountDown(finalDate), 1000)   
         } 
